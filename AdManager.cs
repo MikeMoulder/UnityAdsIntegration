@@ -3,12 +3,13 @@ using UnityEngine.Advertisements;
 using PetrushevskiApps.Utilities;
 public class AdManager : MonoBehaviour, IUnityAdsInitializationListener
 {
-    string _androidGameId = "_Your Android Game ID_";
-    string _iOSGameId = "Your IOS Game ID_";
+    protected string _androidGameId = "_Your Android Game ID_";
+    protected string _iOSGameId = "_Your iOS Game ID_";
     [SerializeField] bool _testMode = true;
     private string _gameId;
 
-    private bool initialized;
+    [HideInInspector]
+    public bool initialized;
     [HideInInspector]
     public RewardedAd rewardedAd;
     [HideInInspector]
@@ -137,6 +138,21 @@ public class AdManager : MonoBehaviour, IUnityAdsInitializationListener
             {
                 print("Couldn't Show An Ad Becuase There's No Internet Connection!");
             }
+        }
+    }
+
+    public void RewardPlayer()
+    {
+        if (rewardedAd.adShown)
+        {
+            //Reward The Player
+
+            /*
+                e.g     Give 100 coins!! and SUBSCRIBE!!
+            */
+
+
+            rewardedAd.Renew();
         }
     }
 
