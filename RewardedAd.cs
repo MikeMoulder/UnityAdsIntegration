@@ -86,6 +86,15 @@ public class RewardedAd : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLis
             LoadAd();
         }
     }
+    public void Renew()
+    {
+        adShown = false;
+        adFailedToShow = false;
+        adLoading = false;
+        adFailedToLoad = false;
+        adShowing = false;
+        adLoaded = false;
+    }
  
     // Implement Load and Show Listener error callbacks:
     public void OnUnityAdsFailedToLoad(string adUnitId, UnityAdsLoadError error, string message)
